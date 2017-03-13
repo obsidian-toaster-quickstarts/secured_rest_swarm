@@ -95,6 +95,12 @@
               <goal>package</goal>
             </goals>
           </execution>
+          <execution>
+            <id>start</id>
+          </execution>
+          <execution>
+            <id>stop</id>
+          </execution>
         </executions>
       </plugin>
     </plugins>
