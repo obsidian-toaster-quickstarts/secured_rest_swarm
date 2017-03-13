@@ -48,21 +48,6 @@ To manage different clients or applications, a resource has been created for the
 This parameter, combined with the `credentials.secret` property, will be used during the authentication phase to log in the application.
 If, it has been successfully granted, then a token will be issued that the application will use for the subsequent calls.
 
-The request that is issued to authenticate the application is:
-
-```
-https://<RED_HAT_SSO>/auth/realms/<REALM>/protocol/openid-connect/token?client_secret=<SECRET>&grant_type=password&client_id=CLIENT_APP
-```
-
-And the HTTP requests accessing the endpoint/Service will include the following Bearer Token:
-
-```
-http://<SWARM_SERVICE>/greeting -H "Authorization:Bearer <ACCESS_TOKEN>"
-```
-
-The project is split into two Apache Maven modules - `app` and `sso`.
-The `App` module exposes the REST Service using WildflySwarm.
-The `sso` module contains the OpenShift objects required to deploy the Red Hat SSO Server 7.0.
 
 The goal of this project is to deploy the quickstart in an OpenShift environment (online, dedicated, ...).
 
@@ -100,11 +85,12 @@ In order to build and deploy this project, you must have an account on an OpenSh
 
 # Build and deploy the Application
 
-1. First, to deploy Red Hat SSO, move to `sso` folder and then use the Fabric8 Maven Plugin to deploy the SSO server:
+1. First, to deploy Red Hat SSO, clone the [redhat-sso](https://github.com/obsidian-toaster-quickstarts/redhat-sso) project
+and following the README.md instructions.
 
     ```bash
-    cd sso
-    mvn fabric8:deploy -Popenshift
+    cd redhat-sso
+    mvn fabric8:deploy
     ```
 
 2. Next, the WildFly Swarm application should be packaged and deployed. This process will generate the uber jar file, the OpenShift resources
@@ -145,11 +131,12 @@ you must change the `SSO_AUTH_SERVER_URL` env variable for the pods to the `<RED
 
 # Access the service
 
-## Browser based access
+Use the rh-sso project scripts to access the secured endpoints.
 
-Pointing your browser to `http://<SWARM_SERVICE>/greeting` should redirect to Red Hat SSO for authentication.
-You can login with `admin:admin` and Red Hat SSO redirects you the REst endpoint. BUt it may the previous session for user `admin`
-is still active. In that case no authentication will be prompted again.
+TODO:
+1. cd redhat-sso
+1. scripts/token_req.sh secured-swarm-rest
+...
 
 If everything works well you should receive a JSON response:
 

@@ -19,7 +19,7 @@ spec:
         - name: JAVA_APP_DIR
           value: /deployments
         - name: SSO_AUTH_SERVER_URL
-          value: ${SSO_AUTH_SERVER_URL}/auth
+          value: https://secure-sso-sso.e8ca.engint.openshiftapps.com/auth
         - name: SSO_REALM
           value: ${SSO_REALM}
         - name: SSO_REALM_PUBLIC_KEY
