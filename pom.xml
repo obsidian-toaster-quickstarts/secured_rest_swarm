@@ -20,12 +20,12 @@
   <parent>
     <groupId>io.openshift</groupId>
     <artifactId>booster-parent</artifactId>
-    <version>8</version>
+    <version>10</version>
   </parent>
 
   <groupId>io.openshift.booster</groupId>
   <artifactId>wfswarm-rest-http-secured-parent</artifactId>
-  <version>1-redhat</version>
+  <version>7.0.0-redhat-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Secured HTTP Example - Parent</name>
