@@ -52,7 +52,7 @@
       <dependency>
         <groupId>org.keycloak</groupId>
         <artifactId>keycloak-authz-client</artifactId>
-        <version>2.5.5.Final</version> <!-- 2.5.7.Final-redhat-2 for product -->
+        <version>2.5.5.Final</version>
         <scope>test</scope>
       </dependency>
       
