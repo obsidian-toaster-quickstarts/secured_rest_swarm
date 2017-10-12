@@ -59,49 +59,4 @@
     </dependencies>
   </dependencyManagement>
 
-  <repositories>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>jboss-enterprise-maven-repository</id>
-      <url>https://maven.repository.redhat.com/ga/</url>
-    </repository>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>jboss-enterprise-maven-repository-earlyaccess</id>
-      <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>jboss-enterprise-maven-repository</id>
-      <url>https://maven.repository.redhat.com/ga/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>jboss-enterprise-maven-repository-earlyaccess</id>
-      <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
 </project>
