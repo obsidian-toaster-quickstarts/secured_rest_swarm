@@ -28,7 +28,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.ws.rs.ForbiddenException;
-import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.ClientRequestFilter;
@@ -38,14 +37,15 @@ import io.fabric8.openshift.api.model.Route;
 import io.fabric8.openshift.client.DefaultOpenShiftClient;
 import io.fabric8.openshift.client.OpenShiftClient;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.HttpResponseException;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.HttpClients;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.authorization.client.AuthzClient;
 import org.keycloak.authorization.client.Configuration;
+import org.keycloak.authorization.client.util.HttpResponseException;
 import org.keycloak.representations.AccessTokenResponse;
 import org.keycloak.util.JsonSerialization;
 
@@ -118,7 +118,9 @@ public class SsoIT {
         }
     }
 
-  /*  @Test
+    // This test checks the "authenticated, but not authorized" flow.
+    @Test
+    @Ignore
     public void adminUser() {
         AccessTokenResponse accessTokenResponse = authzClient.obtainAccessToken("admin", "admin");
         for (String url : applicationUrls) {
@@ -129,7 +131,7 @@ public class SsoIT {
                 // expected
             }
         }
-    }*/
+    }
 
     @Test
     public void badPassword() {
@@ -137,8 +139,8 @@ public class SsoIT {
             AccessTokenResponse accessTokenResponse = authzClient.obtainAccessToken("alice", "bad");
             fail("HttpResponseException expected (401)");
         } catch (Throwable t) {
-            // expected
-            System.out.println("Caught "+t.getClass());
+            assertThat(t).isInstanceOf(HttpResponseException.class);
+            assertThat(((HttpResponseException)t).getStatusCode()).isEqualTo(401);
         }
     }
 
