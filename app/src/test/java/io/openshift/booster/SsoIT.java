@@ -120,7 +120,6 @@ public class SsoIT {
 
     // This test checks the "authenticated, but not authorized" flow.
     @Test
-    @Ignore
     public void adminUser() {
         AccessTokenResponse accessTokenResponse = authzClient.obtainAccessToken("admin", "admin");
         for (String url : applicationUrls) {
