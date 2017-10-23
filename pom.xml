@@ -120,7 +120,7 @@
   <build>
     <resources>
       <resource>
-        <directory>../src/main/fabric8</directory>
+        <directory>src/main/fabric8</directory>
         <filtering>true</filtering>
       </resource>
     </resources>
