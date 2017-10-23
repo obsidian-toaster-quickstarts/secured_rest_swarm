@@ -19,7 +19,7 @@
 
   <artifactId>wfswarm-rest-http-secured</artifactId>
   <groupId>io.openshift.booster</groupId>
-  <version>7.0.0-redhat-1-SNAPSHOT</version>
+  <version>5-SNAPSHOT</version>
 
   <parent>
     <groupId>io.openshift</groupId>
@@ -29,7 +29,7 @@
 
   <packaging>war</packaging>
 
-  <name>Secured HTTP Example - Parent</name>
+  <name>Secured HTTP Example</name>
   <description>Secured WildFly Swarm - Rest &amp; Red Hat SSO</description>
 
   <properties>
