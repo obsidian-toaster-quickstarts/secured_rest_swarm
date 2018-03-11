@@ -27,7 +27,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.client.WebTarget;
 
-import com.jayway.restassured.RestAssured;
+import io.restassured.RestAssured;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.HttpClients;
@@ -44,8 +44,8 @@ import org.keycloak.authorization.client.util.HttpResponseException;
 import org.keycloak.representations.AccessTokenResponse;
 import org.keycloak.util.JsonSerialization;
 
-import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.restassured.RestAssured.get;
+import static io.restassured.RestAssured.get;
+import static org.awaitility.Awaitility.await;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
