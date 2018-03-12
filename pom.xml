@@ -24,7 +24,7 @@
   <parent>
     <groupId>io.openshift</groupId>
     <artifactId>booster-parent</artifactId>
-    <version>18</version>
+    <version>19</version>
   </parent>
 
   <packaging>war</packaging>
@@ -36,8 +36,8 @@
     <version.resteasy>3.0.24.Final</version.resteasy>
     <version.override.jackson>2.7.7</version.override.jackson>
     <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
-    <version.restassured>3.0.6</version.restassured>
-    <version.awaitility>3.0.0</version.awaitility>
+    <version.restassured>3.0.7</version.restassured>
+    <version.awaitility>3.1.0</version.awaitility>
     <version.assertj>3.8.0</version.assertj> 
   </properties>
 
@@ -101,13 +101,6 @@
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>arquillian</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.arquillian.junit</groupId>
-      <artifactId>arquillian-junit-container</artifactId>
-      <version>1.1.12.Final</version>
       <scope>test</scope>
     </dependency>
 

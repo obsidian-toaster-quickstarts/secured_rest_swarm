@@ -32,6 +32,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContexts;
+import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
@@ -45,7 +46,6 @@ import org.keycloak.representations.AccessTokenResponse;
 import org.keycloak.util.JsonSerialization;
 
 import static io.restassured.RestAssured.get;
-import static org.awaitility.Awaitility.await;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
@@ -55,10 +55,12 @@ import static org.assertj.core.api.Assertions.fail;
 @RunWith(Arquillian.class)
 public class OpenshiftIT {
     @RouteURL("secure-sso")
+    @AwaitRoute
     private URL ssoUrlBase;
 
     @RouteURL("${app.name}")
-    private URL appUrl;
+    @AwaitRoute
+    private String appUrl;
 
     private AuthzClient authzClient;
 
@@ -70,13 +72,6 @@ public class OpenshiftIT {
 
         authzClient = createAuthzClient(ssoUrl);
 
-        await().atMost(5, TimeUnit.MINUTES).until(() -> {
-            try {
-                return get(appUrl).getStatusCode() == 200;
-            } catch (Exception e) {
-                return false;
-            }
-        });
     }
 
     private Greeting getGreeting(String token, String from) {
