@@ -33,8 +33,7 @@
   <description>Secured WildFly Swarm - Rest &amp; Red Hat SSO</description>
 
   <properties>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
-    <version.resteasy>3.0.19.Final</version.resteasy>
+    <version.resteasy>3.0.24.Final</version.resteasy>
     <version.override.jackson>2.7.7</version.override.jackson>
     <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
     <version.restassured>3.0.6</version.restassured>
