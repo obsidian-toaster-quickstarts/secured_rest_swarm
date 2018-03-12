@@ -54,9 +54,8 @@ import static org.assertj.core.api.Assertions.fail;
  */
 @RunWith(Arquillian.class)
 public class OpenshiftIT {
-    @RouteURL("secure-sso")
-    @AwaitRoute
-    private URL ssoUrlBase;
+    @RouteURL(value = "secure-sso", path = "/auth")
+    private String ssoUrl;
 
     @RouteURL("${app.name}")
     @AwaitRoute
@@ -66,10 +65,7 @@ public class OpenshiftIT {
 
     @Before
     public void setup() throws Exception {
-        // the injected @RouteURL always contains a port number, which means the URL is different from SSO_AUTH_SERVER_URL,
-        // and that causes failures during token validation
-        String ssoUrl = ssoUrlBase.toString().replace(":443", "") + "auth";
-
+        
         authzClient = createAuthzClient(ssoUrl);
 
     }
@@ -77,7 +73,7 @@ public class OpenshiftIT {
     private Greeting getGreeting(String token, String from) {
         Client client = ClientBuilder.newClient();
         try {
-            WebTarget target = client.target(appUrl.toString());
+            WebTarget target = client.target(appUrl);
             target.register((ClientRequestFilter) requestContext -> {
                 requestContext.getHeaders().add("Authorization", "Bearer " + token);
             });
