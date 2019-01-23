@@ -19,7 +19,7 @@
 
   <artifactId>thorntail-rest-http-secured</artifactId>
   <groupId>io.openshift.booster</groupId>
-  <version>12</version>
+  <version>13-SNAPSHOT</version>
 
   <parent>
     <groupId>io.openshift</groupId>
