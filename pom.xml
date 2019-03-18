@@ -38,7 +38,7 @@
     <version.override.jackson>2.7.7</version.override.jackson>
     <version.restassured>3.0.7</version.restassured>
     <version.awaitility>3.1.5</version.awaitility>
-    <version.assertj>3.8.0</version.assertj> 
+    <version.assertj>3.12.2</version.assertj> 
   </properties>
 
   <dependencyManagement>
