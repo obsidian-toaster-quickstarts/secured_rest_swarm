@@ -423,12 +423,12 @@
             <version>3.0.7</version>
             <licenses>
                 <license>
-                    <name>Common Development and Distribution License (CDDL) and GNU Public License v.2 w/Classpath Exception</name>
-                    <url>https://netbeans.org/cddl-gplv2.html</url>
-                </license>
-                <license>
                     <name>Common Development and Distribution License 1.1</name>
                     <url>https://javaee.github.io/glassfish/LICENSE</url>
+                </license>
+                <license>
+                    <name>Common Development and Distribution License (CDDL) and GNU Public License v.2 w/Classpath Exception</name>
+                    <url>https://netbeans.org/cddl-gplv2.html</url>
                 </license>
             </licenses>
         </dependency>
